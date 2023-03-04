@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+
+  # sqlserver:
+  #   restart: unless-stopped
+  #   environment:
+  #     - SA_PASSWORD=P@ssw0rd
+  #     - ACCEPT_EULA=Y
+  #   ports:
+  #     - "1433:1433"
+
+  # mysql:
+  #   restart: unless-stopped
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=P@ssw0rd
+  #     - MYSQL_DATABASE=ntech-database
+  #     - MYSQL_USER=sa
+  #     - MYSQL_PASSWORD=P@ssw0rd
+  #   ports:
+  #     - "3306:3306"
+
+  postgresql:
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=P@ssw0rd
+    ports:
+      - "5432:5432"
+
+  ntech-web-app:
+    ports:
+      - 5001:443
+      - 5000:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # - ConnectionStrings__DefaultConnection=Server=mysql;Database=ntech-database;Uid=root;Pwd=P@ssw0rd;
+      # - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ntech-database;Uid=sa;Pwd=P@ssw0rd;
+      - ConnectionStrings__DefaultConnection=Server=postgresql;Port=5432;Database=postgres;User Id=postgres;Password=P@ssw0rd;
+      - Logging__Logging__Default=Information
+
+  ntech-web-migration:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__NtechDatabase=Server=postgresql;Port=5432;Database=postgres;User Id=postgres;Password=P@ssw0rd;
+    entrypoint:
+      - dotnet
+      - Ntech.Migration.dll
+      - ntech-database

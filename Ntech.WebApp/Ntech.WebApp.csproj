@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>37082b48-bad3-457c-a3b3-81dfd197dedc</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\JobLevel\**" />
+    <Compile Remove="Views\Job\**" />
+    <Compile Remove="Views\Level\**" />
+    <Content Remove="Views\JobLevel\**" />
+    <Content Remove="Views\Job\**" />
+    <Content Remove="Views\Level\**" />
+    <EmbeddedResource Remove="Views\JobLevel\**" />
+    <EmbeddedResource Remove="Views\Job\**" />
+    <EmbeddedResource Remove="Views\Level\**" />
+    <None Remove="Views\JobLevel\**" />
+    <None Remove="Views\Job\**" />
+    <None Remove="Views\Level\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mailjet.Api" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="wwwroot\images\attachments\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ntech.Libraries\Ntech.NetStandard.Utilities.Excel\Ntech.NetStandard.Utilities.Excel.csproj" />
+    <ProjectReference Include="..\Ntech.Libraries\Ntech.NetStandard.Utilities\Ntech.NetStandard.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

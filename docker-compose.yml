@@ -1,0 +1,66 @@
+version: "3.7"
+
+services:
+
+  # sqlserver:
+  #   image: "mcr.microsoft.com/mssql/server"
+  #   container_name: ntech-sqlserver
+  #   volumes:
+  #     - sqlserver-data
+  #   networks:
+  #     - ntech
+
+  # mysql:
+  #   image: mysql:5.7
+  #   container_name: ntech-mysql
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
+  #   restart: always
+  #   networks:
+  #     - ntech
+
+  postgresql:
+    image: postgres:11-alpine
+    container_name: postgresql
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - ntech
+
+  ntech-web-app:
+    image: ${REGISTRY:-ntech}/ntech-web-app:${TAG:-latest}
+    container_name: ntech-web-app
+    build:
+      context: .
+      dockerfile: Ntech.WebApp/Dockerfile
+    networks:
+      - ntech
+    depends_on:
+      # - mysql
+      # - sqlserver
+      - postgresql
+
+  ntech-web-migration:
+    image: ${REGISTRY:-ntech}/migration:${TAG:-latest}
+    container_name: ntech-web-migration
+    build:
+      context: .
+      dockerfile: Ntech.Migration/Dockerfile
+    volumes:
+      - ./Ntech.Migration/Scripts/:/app/Scripts:ro
+    networks:
+      - ntech
+    depends_on:
+      # - mysql
+      # - sqlserver
+      - postgresql
+
+volumes:
+  # sqlserver-data:
+  # mysql-data:
+  postgres-data:
+
+
+networks:
+  ntech:
+    name: ntech-network

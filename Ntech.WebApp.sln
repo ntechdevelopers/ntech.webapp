@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.128
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ntech.WebApp", "Ntech.WebApp\Ntech.WebApp.csproj", "{E95442B6-FA46-449D-9709-CEF75570001A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-composer", "docker-composer", "{CD3151DE-E6E8-49E4-BAA8-CA6484610DF8}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+		migration.ps1 = migration.ps1
+		publish.ps1 = publish.ps1
+		readme.md = readme.md
+		run.ps1 = run.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ntech.Libraries", "Ntech.Libraries", "{C033EF46-A871-4061-ACDA-813AA07C5AF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ntech.NetStandard.Utilities", "Ntech.Libraries\Ntech.NetStandard.Utilities\Ntech.NetStandard.Utilities.csproj", "{0F441B75-A416-410E-8CCB-BFC0ED59B317}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ntech.NetStandard.Utilities.Excel", "Ntech.Libraries\Ntech.NetStandard.Utilities.Excel\Ntech.NetStandard.Utilities.Excel.csproj", "{298C09ED-7270-4C4D-B9C2-2235AEB2AC15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ntech.NetStandard.Utilities.IO", "Ntech.Libraries\Ntech.NetStandard.Utilities.IO\Ntech.NetStandard.Utilities.IO.csproj", "{C3F51E20-C42C-4EBC-926D-4490B1748875}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ntech.Migration", "Ntech.Migration", "{2C23919A-AE9E-4984-8637-238CFCED749A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ntech.Migration", "Ntech.Migration\Ntech.Migration.csproj", "{EB140251-D1F8-4E70-9CB3-C5C889D78A31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E95442B6-FA46-449D-9709-CEF75570001A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95442B6-FA46-449D-9709-CEF75570001A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95442B6-FA46-449D-9709-CEF75570001A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95442B6-FA46-449D-9709-CEF75570001A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F441B75-A416-410E-8CCB-BFC0ED59B317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F441B75-A416-410E-8CCB-BFC0ED59B317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F441B75-A416-410E-8CCB-BFC0ED59B317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F441B75-A416-410E-8CCB-BFC0ED59B317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298C09ED-7270-4C4D-B9C2-2235AEB2AC15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298C09ED-7270-4C4D-B9C2-2235AEB2AC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298C09ED-7270-4C4D-B9C2-2235AEB2AC15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298C09ED-7270-4C4D-B9C2-2235AEB2AC15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3F51E20-C42C-4EBC-926D-4490B1748875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3F51E20-C42C-4EBC-926D-4490B1748875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3F51E20-C42C-4EBC-926D-4490B1748875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3F51E20-C42C-4EBC-926D-4490B1748875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB140251-D1F8-4E70-9CB3-C5C889D78A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB140251-D1F8-4E70-9CB3-C5C889D78A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB140251-D1F8-4E70-9CB3-C5C889D78A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB140251-D1F8-4E70-9CB3-C5C889D78A31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F441B75-A416-410E-8CCB-BFC0ED59B317} = {C033EF46-A871-4061-ACDA-813AA07C5AF6}
+		{298C09ED-7270-4C4D-B9C2-2235AEB2AC15} = {C033EF46-A871-4061-ACDA-813AA07C5AF6}
+		{C3F51E20-C42C-4EBC-926D-4490B1748875} = {C033EF46-A871-4061-ACDA-813AA07C5AF6}
+		{EB140251-D1F8-4E70-9CB3-C5C889D78A31} = {2C23919A-AE9E-4984-8637-238CFCED749A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62CA0AA8-9E8C-413E-A33B-2E797F92D678}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+dotnet run -p Ntech.WebApp/Ntech.WebApp.csproj

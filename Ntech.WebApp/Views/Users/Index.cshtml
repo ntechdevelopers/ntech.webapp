@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
+
+<h1 class="h3 mb-2 text-gray-800">User Management</h1>
+<p class="mb-4">User List and grant permission for user</p>
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>EmailConfirmed</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>@user.EmailConfirmed</td>
+                            <td>
+                                <div class="w-75 btn-group" role="group">
+                                    <a asp-controller="userroles" asp-action="Index" asp-route-userId="@user.Id" class="btn btn-warning mx-2">
+                                        <i class="fas fa-wrench"></i>
+                                        Assign role
+                                    </a>
+                                    <a asp-controller="userroles" asp-action="Delete" asp-route-roleId="@user.Id" class="btn btn-danger mx-2">
+                                        <i class="far fa-trash-alt"></i>
+                                        Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <!-- Page level plugins -->
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/datatables-demo.js"></script>
+}
+
+@section Styles {
+    <!-- Custom styles for this page -->
+    <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}

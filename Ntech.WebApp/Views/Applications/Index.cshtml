@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Applications Management";
+}
+<h1 class="h3 mb-2 text-gray-800">@ViewData["Title"]</h1>
+<p class="mb-4">@ViewData["Title"] - List</p>
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="w-50">Name</th>
+                        <th>Install time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Skype</td>
+                        <td>@DateTime.Now</td>
+                        <td>
+                            <div class="w-25 btn-group" role="group">
+                                <a class="btn btn-success mx-2">
+                                    <i class="fas fa-wrench"></i>
+                                    Tracking
+                                </a>
+                                <a class="btn btn-warning mx-2">
+                                    <i class="fas fa-wrench"></i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger mx-2">
+                                    <i class="far fa-trash-alt"></i>
+                                    Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <!-- Page level plugins -->
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/datatables-demo.js"></script>
+}
+
+@section Styles {
+    <!-- Custom styles for this page -->
+    <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}

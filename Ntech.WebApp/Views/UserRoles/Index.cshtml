@@ -1,0 +1,56 @@
+﻿@model Ntech.WebApp.Models.ManageUserRolesVM
+
+<h1 class="h3 mb-2 text-gray-800">Assign Roles</h1>
+<p class="mb-4">User: @Model.UserName</p>
+
+<div class="card">
+
+    <div id="viewAll" class="card-body table-responsive">
+        <form asp-controller="userroles" method="post" asp-action="update" asp-route-id="@Model.UserId" class="d-inline">
+            <input asp-for="@Model.UserId" type="hidden" />
+            <table class="table table-striped" id="userRolesTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Role
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.UserRoles.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                <input asp-for="@Model.UserRoles[i].RoleName" type="hidden" />
+                                @Model.UserRoles[i].RoleName
+                            </td>
+                            <td>
+                                <div class="form-check m-1">
+                                    <input asp-for="@Model.UserRoles[i].Selected" class="form-check-input" />
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="form-group row">
+                <div class="col-8 offset-4 row">
+
+                    <button type="submit" id="save" class="btn btn-success">
+                        <i class="fa fa-check"></i>
+                        Save
+                    </button>
+                    <div class="col">
+                        <a asp-area="" asp-controller="Users" asp-action="Index" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i> Back</a>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
